@@ -1,8 +1,6 @@
 package com.mx.taquitosoftware.tsmarket.persistence.entity;
 
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
@@ -17,6 +15,14 @@ public class ProductPurchases {
     private BigDecimal total;
 
     private Boolean estado;
+
+    @ManyToOne
+    @JoinColumn(name = "id_compra", insertable = false, updatable = false)
+    private Buy buy;
+
+    @ManyToOne
+    @JoinColumn(name = "id_producto", insertable = false, updatable = false)
+    private Product product;
 
     public ProductPurchasesPK getId() {
         return id;

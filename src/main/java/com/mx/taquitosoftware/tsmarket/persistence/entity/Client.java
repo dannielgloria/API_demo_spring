@@ -1,6 +1,7 @@
 package com.mx.taquitosoftware.tsmarket.persistence.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "clientes")
@@ -20,6 +21,9 @@ public class Client {
 
     @Column(name = "correo_electronico")
     private String correoElectronico;
+
+    @OneToMany(mappedBy = "client")
+    private List<Buy> buys;
 
     public String getIdCliente() {
         return idCliente;

@@ -2,6 +2,7 @@ package com.mx.taquitosoftware.tsmarket.persistence.entity;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "compras")
@@ -23,6 +24,13 @@ public class Buy {
     private String comentario;
 
     private String estado;
+
+    @ManyToOne
+    @JoinColumn(name = "id_cliente", insertable = false,updatable = false)
+    private  Client client;
+
+    @OneToMany(mappedBy = "product")
+    private List<ProductPurchases> products;
 
     public Integer getIdCompra() {
         return idCompra;

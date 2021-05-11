@@ -1,6 +1,7 @@
 package com.mx.taquitosoftware.tsmarket.persistence.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "categorias")
@@ -14,6 +15,9 @@ public class Category {
     private  String descripcion;
 
     private Boolean estado;
+
+    @OneToMany(mappedBy = "category")
+    private List<Product> products;
 
     public Integer getIdCategoria() {
         return idCategoria;
