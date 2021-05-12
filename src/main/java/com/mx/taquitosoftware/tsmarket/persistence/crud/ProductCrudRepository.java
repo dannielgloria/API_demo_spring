@@ -10,7 +10,7 @@ import java.util.Optional;
 public interface ProductCrudRepository extends CrudRepository<Product, Integer> {
 
     // Native way
-    //@Query(value = "SELECT * FROMA productos WHERE id_categoria = ?", nativeQuery = true)
+    //@Query(value = "SELECT * FROM productos WHERE id_categoria = ?", nativeQuery = true)
     //List<Product> getByCategory(int idCategoria);
 
     //Query Methods
